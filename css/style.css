@@ -1,0 +1,40 @@
+body{
+    background-color: white;
+}
+header>.search{
+
+}
+main{
+    text-align: center;
+}
+kbd{
+    border: 1px solid;
+    border-radius: 15px;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+    padding: 2em 2.5em;
+    margin:10px;
+    color: #999;
+    text-transform: uppercase;/*字母变大写*/
+    font-weight: bold;
+    position: relative;
+    transition: all 0.3s;
+}
+main>#onediv{
+    margin-top: 100px;
+}
+main>#onediv>div{
+    padding: 29px 20px;
+}
+kbd>button{
+    text-decoration: none;
+    font-size: 2px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right:0;
+    bottom:0;
+    display: none;
+}
+kbd:hover>button{
+    display: inline-block;
+}
