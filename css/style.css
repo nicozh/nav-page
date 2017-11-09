@@ -1,8 +1,33 @@
 body{
-    background-color: white;
+    background-image: url(../img/bg1.jpg);
+    background-position: center center;
+    background-size: cover;
+    
 }
-header>.search{
-
+header{
+    text-align: center;
+}
+header> .logo>a>img{
+    width: 50px;
+    height: 30px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+header> #search{
+    margin: 80px 20px 0 0;
+}
+#search>form>input{
+    padding:8px;
+    border-radius: 0px;
+}
+#search>form>input#q{
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 10px 10px;
+    width: 300px;
+    background-color: rgba(172, 165, 165, 0.6);
+}
+#search>form>input>.button{
 }
 main{
     text-align: center;
@@ -13,14 +38,15 @@ kbd{
     box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
     padding: 2em 2.5em;
     margin:10px;
-    color: #999;
+    color: white;
     text-transform: uppercase;/*字母变大写*/
     font-weight: bold;
     position: relative;
     transition: all 0.3s;
+    background-color: rgba(0, 0, 0, 0.45)
 }
 main>#onediv{
-    margin-top: 100px;
+    margin-top: 70px;
 }
 main>#onediv>div{
     padding: 29px 20px;
