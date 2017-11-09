@@ -6,15 +6,12 @@ body{
 }
 header{
     text-align: center;
-}
-header> .logo>a>img{
-    width: 50px;
-    height: 30px;
-    margin-left: 50px;
-    margin-top: 50px;
+} 
+header> .logo{
+    padding-right:55px;
 }
 header> #search{
-    margin: 80px 20px 0 0;
+    margin: 0 20px 0 0;
 }
 #search>form>input{
     padding:8px;
@@ -26,8 +23,6 @@ header> #search{
     padding: 10px 10px;
     width: 300px;
     background-color: rgba(172, 165, 165, 0.6);
-}
-#search>form>input>.button{
 }
 main{
     text-align: center;
@@ -46,7 +41,7 @@ kbd{
     background-color: rgba(0, 0, 0, 0.45)
 }
 main>#onediv{
-    margin-top: 70px;
+    margin-top: 60px;
 }
 main>#onediv>div{
     padding: 29px 20px;
@@ -64,3 +59,28 @@ kbd>button{
 kbd:hover>button{
     display: inline-block;
 }
+/*狗头动画*/
+.logo>img:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
