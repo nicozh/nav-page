@@ -44,8 +44,10 @@
             i: 'imooc.com',
             o: 'office.com',
             p: 'photoshop.com',
+            j: 'jirengu.com',
             a: 'acfun.tv',
             z: 'zhihu.com',
+            x: 'xiedaimala.com',
             b: 'bilibili.com',
             m: 'meituan.com',
         }
@@ -64,17 +66,38 @@
            kbd=document.createElement('kbd')//在div里面加<kbd>
            kbd.textContent=row[index2]
            div1.appendChild(kbd)
-           btn=document.createElement('button')//在<kbd>里面加<button>
-           btn.textContent='编辑'
-           btn.id=row[index2]              //为每个button添加id，id为第二个数组的hash
-           btn.onclick=function(jiushiwo){    //点击事件
-           key=jiushiwo['target']['id']       //获取对应按钮的id
+           //在<kbd>里面加编辑<button>
+           btnE=document.createElement('button')
+           btnE.textContent='E'
+           btnE.className='Edit'
+           btnE.id=row[index2]              //为每个button添加id，id为第二个数组的hash
+           //添加删除按钮
+           btnD=document.createElement('button')
+           btnD.textContent='D'
+           btnD.className='Delete'
+           btnD.id=row[index2]
+           //添加图标
+           url = "http://"+hash[row[index2]]+ "/favicon.ico"
+		   img =document.createElement("img")
+		   img.setAttribute("src",url)
+           //点击删除
+           btnD.onclick = function(jiushiwo){
+		   key = jiushiwo["target"]["id"]
+		   x = ""
+		   hash[key] = x
+		   locateStorage.setItem('bak',JSON.stringify(hash))
+           }
+		   //点击添加		
+           btnE.onclick=function(shiwo){    //点击事件
+           key=shiwo['target']['id']       //获取对应按钮的id
            x=prompt('请输入网址')              //保存网址
            hash[key]=x                        //改变hash对应的网址
            localStorage.setItem('bak', JSON.stringify(hash))
            console.log(hash)
            }
-           kbd.appendChild(btn)
+           kbd.appendChild(img)
+           kbd.appendChild(btnE)
+           kbd.appendChild(btnD)
            index2=index2+1
            }
            index=index+1

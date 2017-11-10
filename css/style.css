@@ -46,18 +46,38 @@ main>#onediv{
 main>#onediv>div{
     padding: 29px 20px;
 }
-kbd>button{
+kbd>.Edit{
     text-decoration: none;
     font-size: 2px;
     margin: 0;
     padding: 0;
     position: absolute;
-    right:0;
-    bottom:0;
+    left:1px;
+    top:22;
     display: none;
 }
-kbd:hover>button{
+kbd>.Delete{
+    text-decoration: none;
+    font-size: 2px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right:1px;
+    top:22;
+    display: none;
+}
+kbd:hover>.Delete{
     display: inline-block;
+}
+kbd:hover>.Edit{
+    display: inline-block;
+}
+kbd>img{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 27px;
+    bottom: 2px;
 }
 /*狗头动画*/
 .logo>img:hover {
