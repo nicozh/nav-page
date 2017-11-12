@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导航</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        <div id="onediv">
+
+        </div>
+    </main>
+    <footer>
+    </footer>
+    <script>
+        var keys={
+            '0':['1','2','3','4','5','6','7','8','9','0',],
+            '1':['q','w','e','r','t','y','u','i','o','p'],
+            '2':['a','s','d','f','g','h','j','k','l'],
+            '3':['z','x','c','v','b','n','m'],
+            'length': 4,
+        }
+        var hash={
+            q: 'qq.com',
+            w: 'weibo.com',
+            e: 'ele.me',
+            r: 'renren.com',
+            t: 'tmall.com',
+            y: 'youtube.com',
+            u: 'freebuff.com',
+            i: 'imooc.com',
+            o: 'office.com',
+            p: 'photoshop.com',
+            j: 'jirengu.com',
+            a: 'acfun.tv',
+            z: 'zhihu.com',
+            x: 'xiedaimala.com',
+            b: 'bilibili.com',
+            m: 'meituan.com',
+        }
+        //取出LocalStorage中的bak的hash,并覆盖原始hash
+        hashInLocalStorage = JSON.parse(localStorage.getItem('bak') || 'null') 
+		if(hashInLocalStorage){
+			hash = hashInLocalStorage
+		}
+        index=0
+        while(index<keys['length']){
+           div1=document.createElement('div')//在onediv里面加<div>
+           onediv.appendChild(div1)
+           row=keys[index]
+           index2=0
+           while(index2<row['length']){
+           kbd=document.createElement('kbd')//在div里面加<kbd>
+           kbd.textContent=row[index2]
+           div1.appendChild(kbd)
+           //在<kbd>里面加编辑<button>
+           btnE=document.createElement('button')
+           btnE.textContent='E'
+           btnE.className='Edit'
+           btnE.id=row[index2]              //为每个button添加id，id为第二个数组的hash
+           //添加删除按钮
+           btnD=document.createElement('button')
+           btnD.textContent='D'
+           btnD.className='Delete'
+           btnD.id=row[index2]
+           //添加图标
+           url = "http://"+hash[row[index2]]+ "/favicon.ico"
+		   img =document.createElement("img")
+		   img.setAttribute("src",url)
+           //点击删除
+           btnD.onclick = function(jiushiwo){
+		   key = jiushiwo["target"]["id"]
+		   x = ""
+		   hash[key] = x
+		   locateStorage.setItem('bak',JSON.stringify(hash))
+           }
+		   //点击添加		
+           btnE.onclick=function(shiwo){    //点击事件
+           key=shiwo['target']['id']       //获取对应按钮的id
+           x=prompt('请输入网址')              //保存网址
+           hash[key]=x                        //改变hash对应的网址
+           localStorage.setItem('bak', JSON.stringify(hash))
+           console.log(hash)
+           }
+           kbd.appendChild(img)
+           kbd.appendChild(btnE)
+           kbd.appendChild(btnD)
+           index2=index2+1
+           }
+           index=index+1
+       }
+       document.onkeypress=function(jiushiwo){  //监听键盘
+           key=jiushiwo['key']            //获取对应hash
+           website=hash[key]
+           window.open('http://'+website,'_blank')//新窗口打开页面
+       }
+    </script>
+</body>
+</html>
