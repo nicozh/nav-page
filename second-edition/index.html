@@ -69,9 +69,16 @@
            btnD.className='Delete'
            btnD.id=row[index2]
            //添加图标
-           url = "http://"+hash[row[index2]]+ "/favicon.ico"
 		   img =document.createElement("img")
-		   img.setAttribute("src",url)
+           if(hash[row[index2]]){
+              img.src= "http://"+hash[row[index2]]+ "/favicon.ico"
+           }else{
+               img.src="//i.loli.net/2017/11/13/5a099853e5a30.png"
+           }
+           //加载出错
+           img.onerror=function(xxx){
+               xxx.target.src="//i.loli.net/2017/11/13/5a099853e5a30.png"
+           }
            //点击删除
            btnD.onclick = function(jiushiwo){
 		   key = jiushiwo["target"]["id"]
@@ -81,11 +88,17 @@
            }
 		   //点击添加		
            btnE.onclick=function(shiwo){    //点击事件
-           key=shiwo['target']['id']       //获取对应按钮的id
+           btn2=shiwo['target']
+           key=btn2['id']       //获取对应按钮的id
            x=prompt('请输入网址')              //保存网址
            hash[key]=x                        //改变hash对应的网址
            localStorage.setItem('bak', JSON.stringify(hash))
            console.log(hash)
+           img2=btn2.previousSibling
+           img2.src="http://"+x+ "/favicon.ico"
+           img2.onerror=function(xx){
+                 xx.target.src="//i.loli.net/2017/11/13/5a099853e5a30.png"
+           }
            }
            kbd.appendChild(img)
            kbd.appendChild(btnE)
