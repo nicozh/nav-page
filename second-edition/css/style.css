@@ -3,11 +3,18 @@ body{
     background-position: center center;
     background-size: cover;
 }
+header>.logo{
+    text-align: center;
+}
+header>.logo>img{
+    height: 100px;
+    width: 100px;
+}
 main{
     text-align: center; display: flex; justify-content: center; align-items: center;
     height: 100vh;
 }
-kbd{
+#onediv kbd{
     border: 1px solid;
     border-radius: 15px;
     box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
@@ -18,10 +25,14 @@ kbd{
     font-weight: bold;
     position: relative;
     transition: all 0.3s;
-    background-color: rgba(0, 0, 0, 0.45)；
+    background: linear-gradient(to bottom, #292929 0%,#111111 100%);
+}
+kbd> .text{
+    font-size: 15px;
 }
 main>#onediv{
-    margin-top:
+    background-color:rgba(139, 97, 79, 0.7);
+    padding: 10px 0;
 }
 main>#onediv>div{
     padding: 29px 20px;
@@ -59,7 +70,7 @@ kbd>img{
     left: 27px;
     bottom: 2px;
 }
-/*狗头动画*/
+/*摇头的logo*/
 .logo>img:hover {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
