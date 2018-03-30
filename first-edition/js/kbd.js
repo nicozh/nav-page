@@ -1,8 +1,8 @@
 {
     let view = {
         el: '#onediv',
-        init(){
-            this.$onediv=document.querySelector(this.el)
+        init() {
+            this.$onediv = document.querySelector(this.el)
         }
     }
     let model = {
@@ -28,10 +28,12 @@
             p: 'photoshop.com',
             j: 'jd.com',
             a: 'acfun.tv',
+            d: 'douban.com',
             z: 'zhihu.com',
-            x: 'xiedaimala.com',
+            x: 'xiaomi.com',
             b: 'bilibili.com',
             m: 'meituan.com',
+            v: 'vuejs.org',
         }
     }
     let controller = {
@@ -39,7 +41,7 @@
             this.view = view
             this.model = model
             this.view.init()
-            this.getFromLocalStorage()            
+            this.getFromLocalStorage()
             this.createKbd()
             this.bindEvents()
         },
@@ -72,10 +74,9 @@
                 let x = prompt('请输入网址')              //保存网址
                 this.model.hash[key] = x                        //改变hash对应的网址
                 localStorage.setItem('bak', JSON.stringify(this.model.hash))
-                //  console.log(hash)
                 //获取输入网址的图标
                 let img2 = btn2.previousSibling
-                img2.src = "http://" + x + "/favicon.ico"
+                img2.src = "//" + x + "/favicon.ico"
                 img2.onerror = function (xx) {
                     xx.target.src = "//i.loli.net/2017/11/14/5a09fd039d5e1.png"
                 }
@@ -90,7 +91,6 @@
 
             //点击删除
             btnD.addEventListener('click', function (e) {
-                // console.log(e.currentTarget)
             })
             btnD.onclick = (e) => {
                 key = e.target.previousSibling.id
@@ -158,9 +158,8 @@
                 key = e['key']            //获取对应hash
                 website = this.model.hash[key]
                 if (website === undefined && isSearch === false) {
-                    alert('没有设置此快捷键')
+                    alert('请先设置此快捷键')
                 } else {
-                    console.log(isSearch)
                     if (!isSearch) {
                         window.open('http://' + website, '_blank')//新窗口打开页面
                     }
